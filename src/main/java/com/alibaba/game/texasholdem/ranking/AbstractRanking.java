@@ -9,6 +9,8 @@ import java.util.List;
 /**
  * Class {@code AbstractRanking} 抽象牌型解析接口, 抽象解析流程
  */
+
+// 大概的意思是想要获得最大牌然后确认牌是否相同
 public abstract class AbstractRanking implements IRanking {
 
     public RankingResult resolve(Player player) {

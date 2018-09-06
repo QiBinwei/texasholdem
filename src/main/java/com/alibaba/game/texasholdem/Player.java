@@ -14,6 +14,7 @@ public class Player implements Comparable<Player> {
     private List<Card> cards; // 玩家手上的五张牌
     private RankingResult rankingResult; // 牌型校验结果
 
+    // 初始化玩家手牌
     public Player() {
         this.cards = new ArrayList<Card>();
     }
@@ -50,6 +51,7 @@ public class Player implements Comparable<Player> {
         return rankingResult;
     }
 
+    // 将每张牌的rank放入map中，并且value是1，2，3，4，5
     public Map<Integer, Integer> getCardsRankCountMap() {
         List<Card> cards = this.getCards();
         Map<Integer, Integer> rankCount = new HashMap<Integer, Integer>();
