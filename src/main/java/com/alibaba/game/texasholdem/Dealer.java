@@ -53,8 +53,7 @@ public class Dealer {
      * 1）5选2 与手牌组成10组牌
      * 2）从10组牌里选择最大的
      * 如何选择最大的
-     * 1）获得牌组的类型，按照类型存储牌面
-     * 2）设置checkpoint，按照皇家同花顺向下，一旦哪种存储的牌型size>1，进行比较，如果=1，返回
+     * 用temp进行循环比较
      */
     public void start() {
         for (int i = 0; i < this.playerList.size(); i++) {
@@ -64,7 +63,24 @@ public class Dealer {
         }
     }
     public void start2() {
-        for (int i = 0; i < this.playerList.size(); i++) {
+    	//i from 1 means the 0 in the playerlist is community card
+        for (int i = 1; i < this.playerList.size(); i++) {
+            for (int j = 0; j < 3; j++) {
+                this.playerList.get(i).addCard(this.poker.dispatch());
+            }
+        }
+    }
+    
+    public void restartRest3(List<Card> communityCards, List<Card> playerOneCards) {
+    	for(Card card:communityCards) {
+    		this.poker.removeCard(card);
+//    		I printed the reset poker set, the remove works
+//    		System.out.println(this.poker);
+    	}
+    	for(Card card:playerOneCards) {
+    		this.poker.removeCard(card);
+    	}
+    	for (int i = 2; i < this.playerList.size(); i++) {
             for (int j = 0; j < 3; j++) {
                 this.playerList.get(i).addCard(this.poker.dispatch());
             }

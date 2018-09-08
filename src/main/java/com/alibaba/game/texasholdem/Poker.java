@@ -35,4 +35,11 @@ public class Poker {
     public Card dispatch() {
         return cards.remove(random.nextInt(cards.size()));
     }
+    
+    public void removeCard(Card card) {
+    	cards.remove(card);
+    }
+    public String toString() {
+    	return this.cards.toString();
+    }
 }

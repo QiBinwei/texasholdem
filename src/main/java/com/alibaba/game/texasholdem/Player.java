@@ -13,12 +13,20 @@ public class Player implements Comparable<Player> {
 
     private List<Card> cards; // 玩家手上的五张牌
     private RankingResult rankingResult; // 牌型校验结果
+	private String name;
 
     // 初始化玩家手牌
     public Player() {
         this.cards = new ArrayList<Card>();
     }
 
+    public void setPlayerName(String name) {
+        this.name = name;
+    }
+    public String getPlayerName() {
+    	return this.name;
+    }
+    
     /**
      * 获得手上的牌的张数
      *
