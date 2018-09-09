@@ -98,10 +98,15 @@ public abstract class AbstractComparing implements IComparing {
         if (p1MaxNum == p2MaxNum) {
             map1.remove(p1MaxNum);
             map2.remove(p2MaxNum);
-            if (map1.size() == map2.size() && 0 == maxPairLoopAddOne - 1) {
-                return this.pairComparing(map1, map2, pair - 1, 1);
+            int p1NextMaxNum = this.findMaxNumber(map1, pair);
+            int p2NextMaxNum = this.findMaxNumber(map2, pair);
+            if(p1NextMaxNum < p2MaxNum) {
+            	return 1;
             }
-            return this.pairComparing(map1, map2, pair, maxPairLoopAddOne - 1);
+            else if(p1NextMaxNum > p2MaxNum) {
+            	return -1;
+            }
+            else {return 0;}
         }
         return 0;
     }
